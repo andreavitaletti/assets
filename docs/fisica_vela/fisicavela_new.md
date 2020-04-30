@@ -19,6 +19,7 @@ Andrea Vitaletti
 # Disclaimer
 
 * I'm an engineer ... sorry for that ;-)
+* I'm a modest sailor ... sorry also for that ;-)
 * A lot of simplifications
 * I tried to credit the work by others on links. If something is missing, first of all I'm really sorry, then please point it out
 
@@ -31,6 +32,15 @@ Andrea Vitaletti
 <img src="assets/evoluzione.jpg" height=500pt>
 
 [source](https://www.velavventura.com/storia-della-vela/) and [source](http://sailingtrivia.ravenyachts.fr/2015/06/little-americas-cup-book-four-side.html)
+
+<!-- slide -->
+
+# Le andature
+
+<a href="https://ormeggionline.com/blog/wp-content/uploads/2013/08/ANDAURE.jpg">
+<img src="assets/andature.jpg" height=500pt>
+</a>
+
 
 <!-- slide -->
 
