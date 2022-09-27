@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Algorand Use Cases</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/github.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+	
+	
+	
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/customcontrols/style.css">
+  
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/black.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+	<link rel="stylesheet" href="libs/styles/iota.css">
+	<link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="my-theme.css">
+  
+
+   <!-- css list -->
+	
+
+   
+
+</head>
+
+<body>
+
+   
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+        <section >
+            
+            <h2>Project Requirements &amp; Use Cases</h2>
+<p>Andrea Vitaletti</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Goals</h2>
+<ul>
+<li>Develop and test state-of-the-art <strong>smart contracts</strong> on Algorand.</li>
+<li>Focus on interesting technical challenges.</li>
+<li>Improve already available smart contracts with enhanced technical solutions.</li>
+<li>New use-cases are very welcome if they can support the development of challenging state-of-the-art smart contracts.</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Criteria</h2>
+<sub>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clarity of the specifications of the smart contract (e.g. functionalities, roles etc) including use cases</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Clarity of the technical challenges in implementing and deploying the smart contract</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Analysis of the state of the art of “similar” or relevant solutions</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Proof-of-concept publicly available in a testnet and documented tests (e.g. reference to relevant transactions)</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Code on github with a well documented README. Note that code quality will be evaluated in terms of simplicity, clarity and comments as well as good practice in code development.</td>
+<td>35</td>
+</tr>
+</tbody>
+</table>
+</sub>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Bonus</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qualitative discussion on the security and correctness of the developed smart contracts</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Discussion of potential business benefits</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Inspiration</h2>
+<p><img src="assets/images/2022-09-23-10-02-13.png" alt=""></p>
+<p><a href="https://www.algorand.com/ecosystem/use-cases" :target="_blank">This is probably the best <s>button</s> link to press</a></p>
+<p><a href="https://developer.algorand.org/ecosystem-projects/" :target="_blank">… but also this one</a></p>
+<p><a href="https://developer.algorand.org/challenges/" :target="_blank">… and you are in a school after all!</a></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>State of the Art</h2>
+<p>A repo of verified smart contract templates</p>
+<p><a href="https://github.com/scale-it/algo-builder/tree/master/examples">https://github.com/scale-it/algo-builder/tree/master/examples</a></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Why not</h2>
+<p>Compare Algorand Smart Contracts with Ethereum ones</p>
+<img src="assets/images/2022-09-27-12-00-14.png" width="400" />
+<!--
+![](assets/images/2022-09-27-12-00-14.png)
+-->
+<p>Key ingredients (rows) to implement the proposed auctions (columns) (Mogavero et al., <a href="https://doi.org/10.1109/ISCC53001.2021.9631511">2021</a>)</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>My personl Challenge</h2>
+<p>Implement a Merkle Patricia Trie on Algorand</p>
+<p><img src="assets/images/2022-09-27-12-10-27.png" alt=""></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a href="https://developer.algorand.org/docs/get-details/transactions/?from_query=fee#fees">Fees</a></h2>
+<pre><code>fee = max(current_fee_per_byte*len(txn_in_bytes), min_fee)
+</code></pre>
+<p>If the network is not congested, the fee per byte will be 0 and the minimum fee (1000µA or 0.001A) for a transaction is used.</p>
+<p>Fees are independent of the type of transaction (payment, ASA transfer, application call, …) and a fortiori <span style="color:red"> independent of the complexity of the smart contract code </span> in case of application calls. <span style="color:red"> Only the size of the serialized transaction matters </span>.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>independent of the complexity of the smart contract code</h2>
+<p><img src="assets/images/2022-09-23-13-10-27.png" alt=""></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a href="https://developer.algorand.org/tutorials/understanding-teal-opcode-budget/">TEAL Opcode Budget</a></h2>
+<p><a href="https://developer.algorand.org/docs/get-details/dapps/avm/teal/"><img src="assets/images/2022-09-23-13-54-54.png" alt=""></a></p>
+<p><a href="https://developer.algorand.org/docs/get-details/dapps/avm/teal/opcodes/">here</a>.</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Approach</h2>
+<ol>
+<li>Get Suggested Params</li>
+<li>Recover Sender Account</li>
+<li>Construct Transaction with Fee</li>
+<li>Sign and Submit Transaction</li>
+</ol>
+<p><br/><br/></p>
+<p><a href="https://developer.algorand.org/tutorials/setting-transaction-fee-python/">more</a></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Get Suggested Params</h2>
+<p><a href="https://algoexplorer.io/api-dev/v2"><img src="assets/images/2022-09-23-10-08-16.png" alt=""></a></p>
+<pre><code>curl -X 'GET' \
+  'https://node.algoexplorerapi.io/v2/transactions/params' \
+  -H 'accept: application/json'
+
+</code></pre>
+<pre><code class="language-json">{
+  &quot;consensus-version&quot;: &quot;https://github.com/algorandfoundation/specs/tree/433d8e9a7274b6fca703d91213e05c7e6a589e69&quot;,
+  &quot;fee&quot;: 0,
+  &quot;genesis-hash&quot;: &quot;wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=&quot;,
+  &quot;genesis-id&quot;: &quot;mainnet-v1.0&quot;,
+  &quot;last-round&quot;: 23632437,
+  &quot;min-fee&quot;: 1000
+}
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Automated testing for Algorand smart contracts</h2>
+<p><a href="https://developer.algorand.org/articles/automated-testing-for-algorand-smart-contracts-part-1-2/">https://developer.algorand.org/articles/automated-testing-for-algorand-smart-contracts-part-1-2/</a></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2><a href="https://www.ulam.io/blog/smart-contracts-on-algorand-best-practises-part-1">Best Practices</a></h2>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>A detour on stable coin</h2>
+<p><img src="assets/images/2022-09-21-09-05-06.png" alt="https://static.seekingalpha.com/uploads/2017/3/14/saupload_Screen_2BShot_2B2017-03-13_2Bat_2B21.19.32.png"></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Bitcoin vs Gold</h2>
+<p><img src="assets/images/2022-09-21-08-58-51.png" alt=""></p>
+<blockquote>
+<p>We conclude that Bitcoin and Gold feature fundamentally different properties as assets and linkages to equity markets. Our results hold for the broad cryptocurrency index CRIX. As of now, Bitcoin does not reflect any distinctive properties of Gold other than asymmetric response in variance.</p>
+</blockquote>
+<p>(Klein et al., <a href="https://doi.org/10.1016/j.irfa.2018.07.010">2018</a>)</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Technology is decentralized … opinions?</h2>
+<p><img src="assets/images/2022-09-21-09-23-05.png" alt=""></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>The effect of opinion makers</h2>
+<p><img src="assets/images/2022-09-21-09-20-40.png" alt="https://www.vox.com/recode/2021/5/18/22441831/elon-musk-bitcoin-dogecoin-crypto-prices-tesla"></p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h2>Stable coin</h2>
+<p><img src="assets/images/2022-09-21-09-11-57.png" alt="https://i0.wp.com/blockchainappfactory.files.wordpress.com/2022/02/8506726a7a1046b196fe230fad8a8a2a.jpg?ssl=1"></p>
+<blockquote>
+<p>A stablecoin is a digital currency that is pegged to a “stable” reserve asset like the U.S. dollar or gold.</p>
+</blockquote>
+
+            </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/menu/menu.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chalkboard/plugin.js"></script>
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      RevealChalkboard, 
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				RevealMenu, 
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				RevealCustomControls, 
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: false,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+      chalkboard: { // font-awesome.min.css must be available
+        //src: "chalkboard/chalkboard.json",
+        storage: "chalkboard-demo",
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						,
+      {
+        icon: '<i class="fa fa-pen-square"></i>',
+        title: 'Toggle chalkboard (B)',
+        action: 'RevealChalkboard.toggleChalkboard();'
+      },
+      {
+        icon: '<i class="fa fa-pen"></i>',
+        title: 'Toggle notes canvas (C)',
+        action: 'RevealChalkboard.toggleNotesCanvas();'
+      }
+      
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+</body>
+
+</html>
