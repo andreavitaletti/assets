@@ -6,61 +6,169 @@
 
   <title>Algorand Use Cases</title>
 
-  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-  <meta name="author" content="Hakim El Hattab">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
-  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- REVEAL CSS-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-  <!-- highlight Theme -->
+  <link rel="stylesheet" href="libs/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/dist/reveal.css">
   
-  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/github.min.css">
-  
-	
-		
-	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
-	
-	
-	
-  <link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/customcontrols/style.css">
-  
-	
-
-
-
-  <!-- Revealjs Theme -->
-  
-  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/black.css" id="theme">
+  <link rel="stylesheet" href="libs/reveal.js/dist/theme/white.css" id="theme">
   
   
+  <!--
+  <link rel="stylesheet" href="libs/reveal.js/plugin/title-footer/title-footer-mod.css" />
+  -->
 
-  <link rel="stylesheet" href="libs/styles/tasklist.css">
-	<link rel="stylesheet" href="libs/styles/iota.css">
-	<link rel="stylesheet" href="libs/styles/layout.css">
+  <!-- MERMAID-->
+  <!--
+  <script src="libs/reveal.js/plugin/mermaid/mermaid.min.js"></script>
+  <style>
+  .mermaid {
+    font-size: 0.5em;
+  }
+  </style>
+  -->
+  
+  <style>
+    [class*=task-list-item] {
+      min-height: 22px;
+      margin-top: 6px!important;
+      margin-bottom: 6px!important;
+      padding-left: 0;
+      list-style: none;
+    }
 
+    [class*=task-list-item]>input:first-child {
+      position: absolute!important;
+      opacity: 0;
+      margin: 0;
+    }
 
-  <!-- Revealjs Theme -->
+    [class*=task-list-item]>label {
+      padding-left: 29px!important;
+      min-height: 22px;
+      line-height: 22px;
+      display: inline-block;
+      position: relative;
+      vertical-align: top;
+      margin-bottom: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::before, .task-list-item>input:first-child:checked+label::before {
+      background-color: #ecf0f1;
+      border-color: #ecf0f1;
+    }
+
+    [class*=task-list-item]>input:first-child+input[type=hidden]+label::before, [class*=task-list-item]>input:first-child+label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #D3CFC8;
+      border-radius: 0;
+      margin-left: -29px;
+    }
+
+    [class*=task-list-item]>input:first-child:checked+input[type=hidden]+label::after, [class*=task-list-item]>input:first-child:checked+label::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-left: none;
+      border-top: none;
+      transform: translate(7.75px,4.5px) rotate(45deg);
+      -ms-transform: translate(7.75px,4.5px) rotate(45deg);
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::after, .task-list-item>input:first-child:checked+label::after {
+      border-bottom-color: #95a5a6;
+      border-right-color: #95a5a6;
+    }
+  </style>
+
+  <!-- Theme used for syntax highlighting of code -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/plugin/highlight/github.css">
+  
+
   
   <link rel="stylesheet" href="my-theme.css">
   
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/dist/print/pdf.css' : 'libs/reveal.js/dist/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
 
-   <!-- css list -->
-	
+  <style>
+     .line {
+      display: block;
+    }   
 
-   
+    .line.focus {
+      background: #fdf6e3;
+      color: #657b83;
+    }
 
+    .reveal .slides section .fragment.current-only {
+      visibility: visible;
+      display: none;
+    }
+
+    .reveal .slides section .fragment.current-only.current-fragment {
+      display: block;
+    }
+
+    .line.focus {
+       opacity: 1.0;
+    } 
+
+    @media (device-width: 100vw) and (device-height: 100vh) {
+      .reveal pre code {
+        max-height: 50vh !important;
+      }
+    }
+
+    #logo img {
+      max-height: 3.5em;
+      max-width: none;
+      min-width: 50px;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      color: white;
+      background: black;
+      padding: 0px 15px;
+      border-radius: 15px;
+      opacity: 0.75 !important;
+      font-size: 50% !important;
+    }
+  </style>
+  <script>
+    if (window.location.search.match(/print-pdf-now/gi)) {
+      window.print();
+    }
+  </script>
 </head>
 
 <body>
-
-   
+  
 
   <div class="reveal">
 
@@ -68,23 +176,17 @@
     <div class="slides">
 
       
-
-
-    
-        <section >
-            
-            <h2>Project Requirements &amp; Use Cases</h2>
+  
+    <section >
+      <h2><a id="user-content-project-requirements--use-cases" class="anchor" href="#project-requirements--use-cases" aria-hidden="true"></a>Project Requirements &amp; Use Cases</h2>
 <p>Andrea Vitaletti</p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Goals</h2>
+  
+    <section >
+      <h2><a id="user-content-goals" class="anchor" href="#goals" aria-hidden="true"></a>Goals</h2>
 <ul>
 <li>Develop and test state-of-the-art <strong>smart contracts</strong> on Algorand.</li>
 <li>Focus on interesting technical challenges.</li>
@@ -92,15 +194,12 @@
 <li>New use-cases are very welcome if they can support the development of challenging state-of-the-art smart contracts.</li>
 </ul>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Criteria</h2>
+  
+    <section >
+      <h2><a id="user-content-criteria" class="anchor" href="#criteria" aria-hidden="true"></a>Criteria</h2>
 <sub>
 <table>
 <thead>
@@ -133,15 +232,12 @@
 </tbody>
 </table>
 </sub>
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Bonus</h2>
+  
+    <section >
+      <h2><a id="user-content-bonus" class="anchor" href="#bonus" aria-hidden="true"></a>Bonus</h2>
 <table>
 <thead>
 <tr>
@@ -161,106 +257,190 @@
 </tbody>
 </table>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Inspiration</h2>
+  
+    <section >
+      <h2><a id="user-content-inspiration" class="anchor" href="#inspiration" aria-hidden="true"></a>Inspiration</h2>
 <p><img src="assets/images/2022-09-23-10-02-13.png" alt=""></p>
 <p><a href="https://www.algorand.com/ecosystem/use-cases" :target="_blank">This is probably the best <s>button</s> link to press</a></p>
 <p><a href="https://developer.algorand.org/ecosystem-projects/" :target="_blank">… but also this one</a></p>
 <p><a href="https://developer.algorand.org/challenges/" :target="_blank">… and you are in a school after all!</a></p>
 
-            </section>
-    
+    </section>
+  
 
+  
+    <section>
+      <section >
+        <h2><a id="user-content-a-detour-on-stable-coin" class="anchor" href="#a-detour-on-stable-coin" aria-hidden="true"></a>A detour on stable coin</h2>
+<p><img src="assets/images/2022-09-21-09-05-06.png" alt="https://static.seekingalpha.com/uploads/2017/3/14/saupload_Screen_2BShot_2B2017-03-13_2Bat_2B21.19.32.png"></p>
 
-
-    
+      </section>
+      
         <section >
-            
-            <h2>State of the Art</h2>
+          <h2><a id="user-content-bitcoin-vs-gold" class="anchor" href="#bitcoin-vs-gold" aria-hidden="true"></a>Bitcoin vs Gold</h2>
+<p><img src="assets/images/2022-09-21-08-58-51.png" alt=""></p>
+<blockquote>
+<p>We conclude that Bitcoin and Gold feature fundamentally different properties as assets and linkages to equity markets. Our results hold for the broad cryptocurrency index CRIX. As of now, Bitcoin does not reflect any distinctive properties of Gold other than asymmetric response in variance.</p>
+</blockquote>
+<p>(Klein et al., <a href="https://doi.org/10.1016/j.irfa.2018.07.010">2018</a>)</p>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-technology-is-decentralized--opinions" class="anchor" href="#technology-is-decentralized--opinions" aria-hidden="true"></a>Technology is decentralized … opinions?</h2>
+<p><img src="assets/images/2022-09-21-09-23-05.png" alt=""></p>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-the-effect-of-opinion-makers" class="anchor" href="#the-effect-of-opinion-makers" aria-hidden="true"></a>The effect of opinion makers</h2>
+<p><img src="assets/images/2022-09-21-09-20-40.png" alt="https://www.vox.com/recode/2021/5/18/22441831/elon-musk-bitcoin-dogecoin-crypto-prices-tesla"></p>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-stable-coin" class="anchor" href="#stable-coin" aria-hidden="true"></a>Stable coin</h2>
+<p><img src="assets/images/2022-09-21-09-11-57.png" alt="https://i0.wp.com/blockchainappfactory.files.wordpress.com/2022/02/8506726a7a1046b196fe230fad8a8a2a.jpg?ssl=1"></p>
+<blockquote>
+<p>A stablecoin is a digital currency that is pegged to a “stable” reserve asset like the U.S. dollar or gold.</p>
+</blockquote>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-algorithmic-stable-coin" class="anchor" href="#algorithmic-stable-coin" aria-hidden="true"></a><a href="https://www.linkedin.com/pulse/million-dollar-algorithmic-stable-coin-shehin-fn/">Algorithmic Stable Coin</a></h2>
+<p><img src="assets/images/2022-09-27-17-18-13.png" alt=""></p>
+<blockquote>
+<blockquote>
+<p>Once the information is available to the stabilizer contract it starts calculating the amount of tokens to be burned and minted from every users wallet associated with the contract and starts the procedure. If price of the coin is greater than the fiat currency it starts burning the tokens. If the price of the token is lesser than the fiat currency it starts minting the token to the wallet .</p>
+</blockquote>
+</blockquote>
+
+        </section>
+      
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-state-of-the-art" class="anchor" href="#state-of-the-art" aria-hidden="true"></a>State of the Art</h2>
 <p>A repo of verified smart contract templates</p>
 <p><a href="https://github.com/scale-it/algo-builder/tree/master/examples">https://github.com/scale-it/algo-builder/tree/master/examples</a></p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Why not</h2>
+  
+    <section>
+      <section >
+        <h2><a id="user-content-why-not" class="anchor" href="#why-not" aria-hidden="true"></a>Why not</h2>
 <p>Compare Algorand Smart Contracts with Ethereum ones</p>
+
+      </section>
+      
+        <section >
+          <h2><a id="user-content-a-possible-taxonomy-of-auctions" class="anchor" href="#a-possible-taxonomy-of-auctions" aria-hidden="true"></a>A possible taxonomy of Auctions</h2>
+<p><img src="assets/images/2022-09-27-17-46-24.png" alt=""></p>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-examples-of-acutions-notarized-bidding" class="anchor" href="#examples-of-acutions-notarized-bidding" aria-hidden="true"></a>Examples of acutions: Notarized Bidding</h2>
+<p>Bids are simply written (i.e., notarized) on the blockchain as soon as they are issued.</p>
+<ul>
+<li>nothing forces the auctioneer to assign the asset to the winning bidder;</li>
+<li>nothing forces the winning bidder to pay the bid;</li>
+<li>bidders might want instead to keep confidential their bids avoiding leaks that can be exploited by their competitors.</li>
+</ul>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-examples-of-acutions-deposited-bidding" class="anchor" href="#examples-of-acutions-deposited-bidding" aria-hidden="true"></a>Examples of acutions: Deposited Bidding</h2>
+<p>The winning bidder will obtain the asset in exchange for the amount of cryptocurrency deposited at bidding phase.</p>
+<ul>
+<li>confidentiality is still an issue</li>
+</ul>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-examples-of-acutions-committed-bidding" class="anchor" href="#examples-of-acutions-committed-bidding" aria-hidden="true"></a>Examples of acutions: Committed Bidding</h2>
+<p>This auction allows private bidding for sealed-bids auctions.</p>
+<ul>
+<li>the sealed envelopes can be opened only when necessary</li>
+</ul>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-examples-of-auctions-confidential-bidding" class="anchor" href="#examples-of-auctions-confidential-bidding" aria-hidden="true"></a>Examples of auctions: Confidential Bidding</h2>
+<p>In this auction, the winner is privately computed without revealing the offers of the other bidders. Each bidder reveals his/her bid only to the auctioneer, who exploits this information to compute and publicly declare the winner.</p>
+
+        </section>
+      
+        <section >
+          <h2><a id="user-content-key-ingredients" class="anchor" href="#key-ingredients" aria-hidden="true"></a>Key ingredients</h2>
 <img src="assets/images/2022-09-27-12-00-14.png" width="400" />
 <!--
 ![](assets/images/2022-09-27-12-00-14.png)
 -->
 <p>Key ingredients (rows) to implement the proposed auctions (columns) (Mogavero et al., <a href="https://doi.org/10.1109/ISCC53001.2021.9631511">2021</a>)</p>
 
-            </section>
-    
+        </section>
+      
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>My personl Challenge</h2>
+  
+    <section >
+      <h2><a id="user-content-my-personl-suggestion" class="anchor" href="#my-personl-suggestion" aria-hidden="true"></a>My personl Suggestion</h2>
 <p>Implement a Merkle Patricia Trie on Algorand</p>
 <p><img src="assets/images/2022-09-27-12-10-27.png" alt=""></p>
+<ul>
+<li>Get, Put, Del, Verify Data Integrity</li>
+<li>They allow quickly calculating the new tree root after an update without recomputing the entire tree</li>
+<li>Verify the inclusion of a key-value pair without the access to the entire key-value pairs.</li>
+</ul>
+<p><a href="https://medium.com/@chiqing/merkle-patricia-trie-explained-ae3ac6a7e123">Nice Article on MPT</a></p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2><a href="https://developer.algorand.org/docs/get-details/transactions/?from_query=fee#fees">Fees</a></h2>
+  
+    <section >
+      <h2><a id="user-content-fees" class="anchor" href="#fees" aria-hidden="true"></a><a href="https://developer.algorand.org/docs/get-details/transactions/?from_query=fee#fees">Fees</a></h2>
 <pre><code>fee = max(current_fee_per_byte*len(txn_in_bytes), min_fee)
 </code></pre>
 <p>If the network is not congested, the fee per byte will be 0 and the minimum fee (1000µA or 0.001A) for a transaction is used.</p>
 <p>Fees are independent of the type of transaction (payment, ASA transfer, application call, …) and a fortiori <span style="color:red"> independent of the complexity of the smart contract code </span> in case of application calls. <span style="color:red"> Only the size of the serialized transaction matters </span>.</p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>independent of the complexity of the smart contract code</h2>
+  
+    <section >
+      <h2><a id="user-content-independent-of-the-complexity-of-the-smart-contract-code" class="anchor" href="#independent-of-the-complexity-of-the-smart-contract-code" aria-hidden="true"></a>independent of the complexity of the smart contract code</h2>
 <p><img src="assets/images/2022-09-23-13-10-27.png" alt=""></p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2><a href="https://developer.algorand.org/tutorials/understanding-teal-opcode-budget/">TEAL Opcode Budget</a></h2>
+  
+    <section >
+      <h2><a id="user-content-teal-opcode-budget" class="anchor" href="#teal-opcode-budget" aria-hidden="true"></a><a href="https://developer.algorand.org/tutorials/understanding-teal-opcode-budget/">TEAL Opcode Budget</a></h2>
 <p><a href="https://developer.algorand.org/docs/get-details/dapps/avm/teal/"><img src="assets/images/2022-09-23-13-54-54.png" alt=""></a></p>
 <p><a href="https://developer.algorand.org/docs/get-details/dapps/avm/teal/opcodes/">here</a>.</p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Approach</h2>
+  
+    <section >
+      <h2><a id="user-content-approach" class="anchor" href="#approach" aria-hidden="true"></a>Approach</h2>
 <ol>
 <li>Get Suggested Params</li>
 <li>Recover Sender Account</li>
@@ -270,15 +450,12 @@
 <p><br/><br/></p>
 <p><a href="https://developer.algorand.org/tutorials/setting-transaction-fee-python/">more</a></p>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Get Suggested Params</h2>
+  
+    <section >
+      <h2><a id="user-content-get-suggested-params" class="anchor" href="#get-suggested-params" aria-hidden="true"></a>Get Suggested Params</h2>
 <p><a href="https://algoexplorer.io/api-dev/v2"><img src="assets/images/2022-09-23-10-08-16.png" alt=""></a></p>
 <pre><code>curl -X 'GET' \
   'https://node.algoexplorerapi.io/v2/transactions/params' \
@@ -295,343 +472,272 @@
 }
 </code></pre>
 
-            </section>
-    
+    </section>
+  
 
-
-
-    
-        <section >
-            
-            <h2>Automated testing for Algorand smart contracts</h2>
+  
+    <section >
+      <h2><a id="user-content-automated-testing-for-algorand-smart-contracts" class="anchor" href="#automated-testing-for-algorand-smart-contracts" aria-hidden="true"></a>Automated testing for Algorand smart contracts</h2>
 <p><a href="https://developer.algorand.org/articles/automated-testing-for-algorand-smart-contracts-part-1-2/">https://developer.algorand.org/articles/automated-testing-for-algorand-smart-contracts-part-1-2/</a></p>
 
-            </section>
-    
+    </section>
+  
 
+  
+    <section >
+      <h2><a id="user-content-best-practices" class="anchor" href="#best-practices" aria-hidden="true"></a><a href="https://www.ulam.io/blog/smart-contracts-on-algorand-best-practises-part-1">Best Practices</a></h2>
 
+    </section>
+  
 
-    
-        <section >
-            
-            <h2><a href="https://www.ulam.io/blog/smart-contracts-on-algorand-best-practises-part-1">Best Practices</a></h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>A detour on stable coin</h2>
-<p><img src="assets/images/2022-09-21-09-05-06.png" alt="https://static.seekingalpha.com/uploads/2017/3/14/saupload_Screen_2BShot_2B2017-03-13_2Bat_2B21.19.32.png"></p>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Bitcoin vs Gold</h2>
-<p><img src="assets/images/2022-09-21-08-58-51.png" alt=""></p>
-<blockquote>
-<p>We conclude that Bitcoin and Gold feature fundamentally different properties as assets and linkages to equity markets. Our results hold for the broad cryptocurrency index CRIX. As of now, Bitcoin does not reflect any distinctive properties of Gold other than asymmetric response in variance.</p>
-</blockquote>
-<p>(Klein et al., <a href="https://doi.org/10.1016/j.irfa.2018.07.010">2018</a>)</p>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Technology is decentralized … opinions?</h2>
-<p><img src="assets/images/2022-09-21-09-23-05.png" alt=""></p>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>The effect of opinion makers</h2>
-<p><img src="assets/images/2022-09-21-09-20-40.png" alt="https://www.vox.com/recode/2021/5/18/22441831/elon-musk-bitcoin-dogecoin-crypto-prices-tesla"></p>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Stable coin</h2>
-<p><img src="assets/images/2022-09-21-09-11-57.png" alt="https://i0.wp.com/blockchainappfactory.files.wordpress.com/2022/02/8506726a7a1046b196fe230fad8a8a2a.jpg?ssl=1"></p>
-<blockquote>
-<p>A stablecoin is a digital currency that is pegged to a “stable” reserve asset like the U.S. dollar or gold.</p>
-</blockquote>
-
-            </section>
-    
 
 
     </div>
 
-
   </div>
 
-  <div class="line top"></div>
-  <div class="line bottom"></div>
-  <div class="line left"></div>
-  <div class="line right"></div>
+  <script src="libs/reveal.js/dist/reveal.js"></script>
 
-  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+<script src="libs/reveal.js/plugin/zoom/zoom.js"></script>
 
-<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/menu/menu.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/chalkboard/plugin.js"></script>
-
-<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
-<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
-<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
-
-  
-
+<script src="libs/reveal.js/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/plugin/search/search.js"></script>
+<script src="libs/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/plugin/math/math.js"></script>
 <script>
-  const printPlugins = [
-      RevealNotes,
-      RevealHighlight,
-      RevealMath.MathJax3,
-      RevealAnimate,
-      RevealChalkboard, 
-			RevealEmbedTweet,
-			RevealChart,
-		];
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
 
-		const plugins =  [...printPlugins,
-		RevealZoom, 
-		RevealSearch, 
-				RevealMarkdown, 
-				RevealMenu, 
-				RevealFullscreen,
-				RevealAnything,
-				//RevealAudioSlideshow,
-				//RevealAudioRecorder,
-				RevealCustomControls, 
-				// poll
-				// question
-				// seminar
-				Verticator 
-				 ]
+        controls: true,
+        controlsTutorial: true,
+        controlsLayout: 'bottom-right',
+        controlsBackArrows: 'faded',
+        progress: true,
+        slideNumber: false,
+        history: true,
+        keyboard: true,
+        overview: true,
+        center: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        shuffle: false,
+        fragments: true,
+        fragmentInURL: false,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: false,
+        autoSlide: 0,
+        autoSlideStoppable: true,
+        autoSlideMethod: Reveal.navigateNext,
+        defaultTiming: 120,
+        mouseWheel: false,
+        hideAddressBar: true,
+        previewLinks: false,
+        transition: 'slide',
+        transitionSpeed: 'default',
+        backgroundTransition: 'default',
+        viewDistance: 3,
+        parallaxBackgroundImage: '',
+        parallaxBackgroundSize: '',
+        parallaxBackgroundHorizontal: 0,
+        parallaxBackgroundVertical: 0,
+        display: 'block',
 
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath],
+        
+        math: {
+            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full',
+            TeX: { Macros: { RR: "{\\bf R}" } }
+        },
+        /*
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+            
 
-		// Also available as an ES module, see:
-		// https://revealjs.com/initialization/
-		Reveal.initialize({
-			controls: true,
-      controlsTutorial: true,
-      controlsLayout: 'bottom-right',
-      controlsBackArrows: 'faded',
-      progress: true,
-      slideNumber: false,
-      //#showSlideNumber "all" "print" "speaker"
-      hash: true, //# hash: false,
-      //# respondToHashChanges: true,
-      //# history: false,
-      keyboard: true,
-      //#keyboardCondition: null,
-      overview: true,
-      center: true,
-      touch: true,
-      loop: false,
-      rtl: false,
-      //#navigationMode: 'default', linear grid
-      shuffle: false,
-      fragments: true,
-      fragmentInURL: false,
-      embedded: false,
-      help: true,
-      //#pause: true
-      showNotes: false,
-      autoPlayMedia: false, // TODO fix this to a nullable value
-      //#preloadIframes: null. true false
-      //#autoAnimate: true
-      //#autoAnimateMatcher: null,
-      //#autoAnimateEasing: 'ease',
-      //autoAnimateDuration: 1.0,
-      //#autoAnimateUnmatched: true
-      //#autoAnimateStyles: []
-      autoSlide: 0, // TODO fix this to a falseable value
-      autoSlideStoppable: true,
-      autoSlideMethod: '0',
-      defaultTiming: 120,
-      mouseWheel: false,
-      //#previewLinks: false
-      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
-      //#postMessageEvents: false,
-      //#focusBodyOnPageVisibilityChange: true,
-      transition: 'slide',
-      transitionSpeed: 'default',
-      backgroundTransition: 'fade',
-      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
-      //#pdfSeparateFragments: true,
-      //#pdfPageHeightOffset: -1,
-      viewDistance: 3,
-      //#mobileViewDistance: 2,
-      display: 'block',
-      //#hideInactiveCursor: true,
-      //#hideCursorTime: 5000
+            
+            { src: 'libs/reveal.js-plugins/3.8.0/plugin/chalkboard/chalkboard.js' },
+                
 
-      // Parallax Background
-      parallaxBackgroundImage: '',
-      parallaxBackgroundSize: '',
-      parallaxBackgroundHorizontal: 0,
-      parallaxBackgroundVertical: 0,
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            
 
-      //Presentation Size
-      width: 960,
-			height: 700,
-			margin: 0.04,
-      minScale: 0.2,
-      maxScale: 2,
-      disableLayout: false,
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
+            
+            {
+                src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
+                async: true,
+                callback: function () {
+                    RevealCodeFocus();
+                }
+            },
+            // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
+        ],
+        keyboard: {
+            67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+            66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+            46: function () { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+            8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+            68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+        },
+        chart: {
+            defaults: {
+                global: {
+                    title: { fontColor: "#FFF" },
+                    legend: {
+                        position: "bottom",
+                            labels: { fontColor: "#FFF" },
+                    },
+                    tooltips: {
+                        labels: { fontColor: "#FFF" },
+                    },
+                },
+                scale: {
+                    scaleLabel: { fontColor: "#FFF" },
+                    gridLines: { color: "#FFF", zeroLineColor: "#FFF" },
+                    ticks: { fontColor: "#FFF" },
+                }
+            },
+            line: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"], "borderDash": [[5, 10], [0, 0]] },
+            bar: { backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+            pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
+            radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+        },
+        anything: [ 
+            {
+                className: "mermaid"
+            },
+            // ...
+        ],
+        menu: {
+            // Specifies which side of the presentation the menu will 
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
 
-      audio: {
-        prefix: 'audio/', // audio files are stored in the "audio" folder
-        suffix: '.ogg', // audio files have the ".ogg" ending
-        textToSpeechURL: null, // the URL to the text to speech converter
-        defaultNotes: false, // use slide notes as default for the text to speech converter
-        defaultText: false, // use slide text as default for the text to speech converter
-        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
-        autoplay: false, // automatically start slideshow
-        defaultDuration: 5, // default duration in seconds if no audio is available
-        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
-        playerOpacity: 0.05, // opacity value of audio player if unfocused
-        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
-        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
-      },
-      
-      chalkboard: { // font-awesome.min.css must be available
-        //src: "chalkboard/chalkboard.json",
-        storage: "chalkboard-demo",
-      },
-      
-			customcontrols: {
-					controls: [
-      						{
-						  id: 'toggle-overview',
-						  title: 'Toggle overview (O)',
-						  icon: '<i class="fa fa-th"></i>',
-						  action: 'Reveal.toggleOverview();'
-						}
-						,
-      {
-        icon: '<i class="fa fa-pen-square"></i>',
-        title: 'Toggle chalkboard (B)',
-        action: 'RevealChalkboard.toggleChalkboard();'
-      },
-      {
-        icon: '<i class="fa fa-pen"></i>',
-        title: 'Toggle notes canvas (C)',
-        action: 'RevealChalkboard.toggleNotesCanvas();'
-      }
-      
-				]
-			},
-			chart: {
-					defaults: { 
-						color: 'lightgray', // color of labels
-						scale: { 
-							beginAtZero: true, 
-							ticks: { stepSize: 1 },
-							grid: { color: "lightgray" } , // color of grid lines
-						},
-					},
-					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
-					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
-					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
-					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
-			},
-			math: {
-				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
-				config: 'TeX-AMS_HTML-full',
-				// pass other options into `MathJax.Hub.Config()`
-				TeX: { Macros: { RR: "{\\bf R}" } }
-				},
-				anything: [ 
-				{
-		className: "plot",
-		defaults: {width:500, height: 500, grid:true},
-		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
-	 },
-	 {
-		className: "chart",  
-		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
-	 },
-	 {
-		className: "anything",
-		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
-	 },
-					],
-			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
-		});
-			
+                // Specifies the width of the menu.
+                // Can be one of the following:
+                // 'normal', 'wide', 'third', 'half', 'full', or
+                // any valid css length value
+                width: 'normal',
 
+                    // Add slide numbers to the titles in the slide list.
+                    // Use 'true' or format string (same as reveal.js slide numbers)
+                    numbers: false,
 
-	    // Change chalkboard theme : 
-		function changeTheme(input) {
-			var config = {};
-			config.theme = input.value;
-			Reveal.getPlugin("RevealChalkboard").configure(config);
-			input.blur();
-		}
+                        // Specifies which slide elements will be used for generating
+                        // the slide titles in the menu. The default selects the first
+                        // heading element found in the slide, but you can specify any
+                        // valid css selector and the text from the first matching
+                        // element will be used.
+                        // Note: that a section data-menu-title attribute or an element
+                        // with a menu-title class will take precedence over this option
+                        titleSelector: 'h1, h2, h3, h4, h5, h6',
 
-		// // Handle the message inside the webview
-        // window.addEventListener('message', event => {
+                            // If slides do not have a matching title, attempt to use the
+                            // start of the text content as the title instead
+                            useTextContentForMissingTitles: false,
 
-        //     const message = event.data; // The JSON data our extension sent
+                                // Hide slides from the menu that do not have a title.
+                                // Set to 'true' to only list slides with titles.
+                                hideMissingTitles: false,
 
-        //     switch (message.command) {
-        //         case 'refactor':
-        //             Reveal.toggleHelp();
-        //     }
-        // });
+                                    // Adds markers to the slide titles to indicate the 
+                                    // progress through the presentation. Set to 'false'
+                                    // to hide the markers.
+                                    markers: true,
 
-		if (window.location.search.match(/print-pdf-now/gi)) {
-      		setTimeout(() => {
-				window.print();
-			  }, 2500);
-			
-    }
+                                        // Specify custom panels to be included in the menu, by
+                                        // providing an array of objects with 'title', 'icon'
+                                        // properties, and either a 'src' or 'content' property.
+                                        // custom: false,
+                                        custom: [],
+                                            // Specifies the themes that will be available in the themes
+                                            // menu panel. Set to 'true' to show the themes menu panel
+                                            // with the default themes list. Alternatively, provide an
+                                            // array to specify the themes to make available in the
+                                            // themes menu panel, for example...
+                                            // [
+                                            //     { name: 'Black', theme: 'css/theme/black.css' },
+                                            //     { name: 'White', theme: 'css/theme/white.css' },
+                                            //     { name: 'League', theme: 'css/theme/league.css' }
+                                            // ]
+                                            themes: false,
+
+                                                // Specifies the path to the default theme files. If your
+                                                // presentation uses a different path to the standard reveal
+                                                // layout then you need to provide this option, but only
+                                                // when 'themes' is set to 'true'. If you provide your own 
+                                                // list of themes or 'themes' is set to 'false' the 
+                                                // 'themesPath' option is ignored.
+                                                themesPath: 'css/theme/',
+
+                                                    // Specifies if the transitions menu panel will be shown.
+                                                    // Set to 'true' to show the transitions menu panel with
+                                                    // the default transitions list. Alternatively, provide an
+                                                    // array to specify the transitions to make available in
+                                                    // the transitions panel, for example...
+                                                    // ['None', 'Fade', 'Slide']
+                                                    transitions: false,
+
+                                                        // Adds a menu button to the slides to open the menu panel.
+                                                        // Set to 'false' to hide the button.
+                                                        openButton: true,
+
+                                                            // If 'true' allows the slide number in the presentation to
+                                                            // open the menu panel. The reveal.js slideNumber option must 
+                                                            // be displayed for this to take effect
+                                                            openSlideNumber: false,
+
+                                                                // If true allows the user to open and navigate the menu using
+                                                                // the keyboard. Standard keyboard interaction with reveal
+                                                                // will be disabled while the menu is open.
+                                                                keyboard: true,
+
+                                                                    // Normally the menu will close on user actions such as
+                                                                    // selecting a menu item, or clicking the presentation area.
+                                                                    // If 'true', the sticky option will leave the menu open
+                                                                    // until it is explicitly closed, that is, using the close
+                                                                    // button or pressing the ESC or m key (when the keyboard 
+                                                                    // interaction option is enabled).
+                                                                    sticky: false,
+
+                                                                        // If 'true' standard menu items will be automatically opened
+                                                                        // when navigating using the keyboard. Note: this only takes 
+                                                                        // effect when both the 'keyboard' and 'sticky' options are enabled.
+                                                                        autoOpen: true,
+
+                                                                            // If 'true' the menu will not be created until it is explicitly
+                                                                            // requested by calling RevealMenu.init(). Note this will delay
+                                                                            // the creation of all menu panels, including custom panels, and
+                                                                            // the menu button.
+                                                                            delayInit: false,
+
+                                                                                // If 'true' the menu will be shown when the menu is initialised.
+                                                                                openOnInit: false,
+
+                                                                                    // By default the menu will load it's own font-awesome library
+                                                                                    // icons. If your presentation needs to load a different
+                                                                                    // font-awesome library the 'loadIcons' option can be set to false
+                                                                                    // and the menu will not attempt to load the font-awesome library.
+                                                                                    loadIcons: false
+        },
+        chalkboard: {
+            toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+            toggleNotesButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+
+        }
+        */
+    });
+
 </script>
+
 
 </body>
 
